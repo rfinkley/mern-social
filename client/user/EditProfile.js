@@ -44,6 +44,7 @@ export default function EditProfile({ match }) {
     password: '',
     email: '',
     open: false,
+    about: '',
     error: '',
     redirectToProfile: false,
   });
@@ -123,6 +124,14 @@ export default function EditProfile({ match }) {
           value={values.email}
           onChange={handleChange('email')}
           margin="normal"
+        />
+        <br />
+        <TextField
+          id="multiline-flexible"
+          label="About"
+          multiline
+          value={values.about}
+          onChange={handleChange('about')}
         />
         <br />
         <TextField
