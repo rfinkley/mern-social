@@ -5,7 +5,7 @@ const config = {
   mongoUri:
     process.env.MONGODB_URI ||
     process.env.MONGO_HOST ||
-    'mongodb://' + (process.env.IP || 'localhost') + ':' + '/mernproject',
+    'mongodb://' + (process.env.IP || 'localhost') + ':' + '/mernsocial',
 };
 
 export default config;
