@@ -64,7 +64,12 @@ export default function EditProfile({ match }) {
       if (data && data.error) {
         setValues({ ...values, error: data.error });
       } else {
-        setValues({ ...values, name: data.name, email: data.email });
+        setValues({
+          ...values,
+          name: data.name,
+          email: data.email,
+          about: data.about,
+        });
       }
     });
     return function cleanup() {
@@ -76,6 +81,7 @@ export default function EditProfile({ match }) {
     const user = {
       name: values.name || undefined,
       email: values.email || undefined,
+      about: values.about || undefined,
       password: values.password || undefined,
     };
     update(
