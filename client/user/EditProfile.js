@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import auth from './../auth/auth-helper';
 import { read, update } from './api-user.js';
 import { Redirect } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -35,6 +36,14 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     marginBottom: theme.spacing(2),
   },
+  bigAvatar: {
+    width: 60,
+    height: 60,
+    margin: 'auto',
+  },
+  input: {
+    display: 'none',
+  },
 }));
 
 export default function EditProfile({ match }) {
@@ -45,6 +54,7 @@ export default function EditProfile({ match }) {
     email: '',
     open: false,
     about: '',
+    photo: '',
     error: '',
     redirectToProfile: false,
   });
@@ -113,6 +123,25 @@ export default function EditProfile({ match }) {
         <Typography variant="h6" className={classes.title}>
           Edit Profile
         </Typography>
+        <Avatar src={photoUrl} className={classes.bigAvatar} />
+        <br />
+        <input
+          accept="image/*"
+          onChange={handleChange('photo')}
+          className={classes.input}
+          id="icon-button-file"
+          type="file"
+        />
+        <label htmlFor="icon=button-file">
+          <Button variant="contained" color="default" component="span">
+            Upload
+            <FileUpload />
+          </Button>
+        </label>{' '}
+        <span className={classes.filename}>
+          {values.photo ? values.photo.name : ''}
+        </span>
+        <br />
         <TextField
           id="name"
           label="Name"
