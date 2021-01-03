@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon"
   },
+  "repository": "https://github.com/rfinkley/mern-social",
   "author": "Robert Finkley",
   "license": "ISC",
   "devDependencies": {
@@ -15,6 +16,7 @@
     "@babel/preset-react": "^7.12.7",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.1",
+    "eslint": "^7.17.0",
     "file-loader": "^6.2.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.0",
@@ -33,6 +35,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
+    "formidable": "^1.2.2",
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
