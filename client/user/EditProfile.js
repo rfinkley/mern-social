@@ -131,6 +131,7 @@ export default function EditProfile({ match }) {
           className={classes.input}
           id="icon-button-file"
           type="file"
+          style={{ display: 'none' }}
         />
         <label htmlFor="icon=button-file">
           <Button variant="contained" color="default" component="span">
