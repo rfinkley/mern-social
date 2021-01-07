@@ -97,6 +97,13 @@ const remove = async (req, res) => {
   }
 };
 
+const photo = (req, res, next) => {
+  if (req.profile.photo.data) {
+    res.set('Content-Type', req.profile.photo.contentType);
+    return res.send(req.profile.photo.data);
+  }
+};
+
 export default {
   create,
   userByID,
