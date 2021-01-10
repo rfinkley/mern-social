@@ -59,9 +59,14 @@ export default function Profile({ match }) {
     };
   }, [match.params.userId]);
 
+  const photoUrl = values.user._id
+    ? `/api/users/photo/${values.user._id}?${new Date().getTime()}`
+    : '/api/users/defaultphoto';
+
   if (redirectToSignin) {
     return <Redirect to="/signin" />;
   }
+
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -70,7 +75,7 @@ export default function Profile({ match }) {
       <List dense>
         <ListItem>
           <ListItemAvatar>
-            <Avatar>
+            <Avatar src={photoUrl}>
               <Person />
             </Avatar>
           </ListItemAvatar>
