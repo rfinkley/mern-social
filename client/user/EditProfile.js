@@ -153,16 +153,6 @@ export default function EditProfile({ match }) {
         />
         <br />
         <TextField
-          id="email"
-          type="email"
-          label="Email"
-          className={classes.textField}
-          value={values.email}
-          onChange={handleChange('email')}
-          margin="normal"
-        />
-        <br />
-        <TextField
           id="multiline-flexible"
           label="About"
           multiline
@@ -170,6 +160,16 @@ export default function EditProfile({ match }) {
           value={values.about}
           onChange={handleChange('about')}
           className={classes.textField}
+          margin="normal"
+        />
+        <br />
+        <TextField
+          id="email"
+          type="email"
+          label="Email"
+          className={classes.textField}
+          value={values.email}
+          onChange={handleChange('email')}
           margin="normal"
         />
         <br />
