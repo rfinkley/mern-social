@@ -142,6 +142,19 @@ const addFollower = async (req, res) => {
   }
 };
 
+const removeFollowing = async (req, res, next) => {
+  try {
+    await User.findByIdAndUpdate(req.body.userId, {
+      $pull: { following: req.body.unfollowId },
+    });
+    next();
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
 export default {
   create,
   userByID,
@@ -151,4 +164,6 @@ export default {
   update,
   photo,
   defaultPhoto,
+  addFollower,
+  addFollowing,
 };
