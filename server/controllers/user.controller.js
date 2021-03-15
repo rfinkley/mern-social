@@ -166,4 +166,5 @@ export default {
   defaultPhoto,
   addFollower,
   addFollowing,
+  removeFollowing,
 };
