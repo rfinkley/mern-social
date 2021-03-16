@@ -155,6 +155,26 @@ const removeFollowing = async (req, res, next) => {
   }
 };
 
+const removeFollower = async (req, res) => {
+  try {
+    let result = await User.findByIdAndUpdate(
+      req.body.unfollowId,
+      { $pull: { followers: req.body.userId } },
+      { new: true }
+    )
+      .populate('following', '_id.name')
+      .populate('followers', '_id name')
+      .exec();
+    result.hashed_password = undefined;
+    result.salt = undefined;
+    res.json(result);
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
 export default {
   create,
   userByID,
@@ -167,4 +187,5 @@ export default {
   addFollower,
   addFollowing,
   removeFollowing,
+  removeFollower,
 };
