@@ -1,3 +1,5 @@
+import { CreditCard } from '@material-ui/icons';
+
 const create = async (user) => {
   try {
     let response = await fetch('/api/users/', {
@@ -68,6 +70,23 @@ const remove = async (params, credentials) => {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + credentials.t,
       },
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const follow = async (params, credentials, followId) => {
+  try {
+    let response = await fetch('/api/users/follow', {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + credentials.t,
+      },
+      body: JSON.stringify({ userId: params.userId, followId: followId }),
     });
     return await response.json();
   } catch (err) {
